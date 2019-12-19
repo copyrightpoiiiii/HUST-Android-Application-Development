@@ -1,6 +1,8 @@
 # HUST-Android-Application-Development
 This is a repo for HUST Android Application Development.
 
+## This branch is for broadwaybabe to commit code
+
 ## 手机桌面宠物
   未完成
   - 悬浮在Android手机桌面上，能自动贴边
