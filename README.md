@@ -1,7 +1,7 @@
 # HUST-Android-Application-Development
 This is a repo for HUST Android Application Development.
 
-## This branch is for broadwaybabe to commit code
+## This branch is for carrol74 to commit code
 
 ## 手机桌面宠物
   未完成
