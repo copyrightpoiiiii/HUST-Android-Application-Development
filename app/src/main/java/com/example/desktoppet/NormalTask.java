@@ -46,7 +46,7 @@ public class NormalTask extends AsyncTask<Void, Void, Boolean> {
                 SingleAnimaion.animationSet[petIndex][animationIndex].play();
             } else
                 SingleAnimaion.animationSet[petIndex][0].play();
-            Log.d("animation index:" + animationIndex, String.valueOf(count));
+            Log.d("animation index:" + animationIndex, String.valueOf(cnt));
         }
     }
 }
