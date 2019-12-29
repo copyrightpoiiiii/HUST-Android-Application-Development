@@ -92,7 +92,7 @@ public class FloatWindowPetView extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 xInScreen = event.getRawX();
-                yInScreen = event.getRawY() = getStatusBarHeight();
+                yInScreen = event.getRawY() - getStatusBarHeight();
                 updateViewPosition();
             case MotionEvent.ACTION_UP:
                 if (xDownInScreen == xInScreen && yDownInScreen == yInScreen) {
