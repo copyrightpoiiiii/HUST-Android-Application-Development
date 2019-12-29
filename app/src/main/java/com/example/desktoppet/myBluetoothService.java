@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.widget.Toast;
 
 
-public class myBluetoothService extends Sevice {
+public class myBluetoothService extends Service {
     private boolean ListenOrSearch = false;
     private String address = null;
 

@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import java.util.*;
 
 @SuppressLint("NewApi")
@@ -97,11 +98,11 @@ public class DeviceList extends Activity {
         }
     }
 
-    protected void onDestory(){
+    protected void onDestory() {
         super.onDestroy();
 
         //ensure doing no more discovery
-        if(mBtAdapter!=null){
+        if (mBtAdapter != null) {
             mBtAdapter.cancelDiscovery();
         }
 
@@ -110,8 +111,8 @@ public class DeviceList extends Activity {
         this.finish();
     }
 
-    private void doDiscovery(){
-        if(D) Log.d(tag, "doDiscovery()");
+    private void doDiscovery() {
+        if (D) Log.d(tag, "doDiscovery()");
 
         //Remove all elems from list
         mPairedDevicesArrayAdapter.clear();
@@ -123,14 +124,14 @@ public class DeviceList extends Activity {
             }
         } else {
             String strNoFound = getIntent().getStringExtra("no_devices_found");
-            if(strNoFound == null)
+            if (strNoFound == null)
                 strNoFound = "No devices found";
             mPairedDevicesArrayAdapter.add(strNoFound);
         }
 
         //indicate scanning in the title
         String strScanning = getIntent().getStringExtra("scanning");
-        if(strScanning == null)
+        if (strScanning == null)
             strScanning = "Scanning for devices...";
         setProgressBarIndeterminateVisibility(true);
         setTitle(strScanning);
@@ -150,13 +151,13 @@ public class DeviceList extends Activity {
     private OnItemClickListener mDeviceClickListener = new OnItemClickListener() {
         public void onItemClick(AdapterView<?> av, View v, int arg2, long arg3) {
             // Cancel discovery because it's costly and we're about to connect
-            if(mBtAdapter.isDiscovering())
+            if (mBtAdapter.isDiscovering())
                 mBtAdapter.cancelDiscovery();
 
             String strNoFound = getIntent().getStringExtra("no_devices_found");
-            if(strNoFound == null)
+            if (strNoFound == null)
                 strNoFound = "No devices found";
-            if(!((TextView) v).getText().toString().equals(strNoFound)) {
+            if (!((TextView) v).getText().toString().equals(strNoFound)) {
                 // Get the device MAC address, which is the last 17 chars in the View
                 String info = ((TextView) v).getText().toString();
                 String address = info.substring(info.length() - 17);
@@ -184,10 +185,10 @@ public class DeviceList extends Activity {
                 // If it's already paired, skip it, because it's been listed already
                 if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                     String strNoFound = getIntent().getStringExtra("no_devices_found");
-                    if(strNoFound == null)
+                    if (strNoFound == null)
                         strNoFound = "No devices found";
 
-                    if(mPairedDevicesArrayAdapter.getItem(0).equals(strNoFound)) {
+                    if (mPairedDevicesArrayAdapter.getItem(0).equals(strNoFound)) {
                         mPairedDevicesArrayAdapter.remove(strNoFound);
                     }
                     mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
@@ -197,7 +198,7 @@ public class DeviceList extends Activity {
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 setProgressBarIndeterminateVisibility(false);
                 String strSelectDevice = getIntent().getStringExtra("select_device");
-                if(strSelectDevice == null)
+                if (strSelectDevice == null)
                     strSelectDevice = "Select a device to connect";
                 setTitle(strSelectDevice);
             }
