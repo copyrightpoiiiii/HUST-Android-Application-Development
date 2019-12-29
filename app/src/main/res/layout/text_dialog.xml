@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bluetooth_message"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:background="@drawable/infopush_dialog_up">
+    android:layout_width="220dp"
+    android:layout_height="220dp"
+    android:background="@drawable/duihuakuang1">
 
     <EditText
         android:id="@+id/input_text"
@@ -16,7 +16,7 @@
         android:paddingLeft="30dp"
         android:paddingTop="20dp"
         android:scrollbars="vertical"
-        android:textColor="#000"
+        android:textColor="#000000"
         android:textSize="15dip"></EditText>
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_toRightOf="@+id/input_text"
         android:clickable="true"
         android:text="发送"
-        android:textColor="#808080" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/quit"
@@ -39,6 +39,6 @@
         android:layout_marginTop="40dp"
         android:clickable="true"
         android:text="X"
-        android:textColor="#808080" />
+        android:textColor="#000000" />
 
 </RelativeLayout>

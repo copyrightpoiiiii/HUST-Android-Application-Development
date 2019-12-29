@@ -24,7 +24,6 @@ public class FloatToolbarView extends LinearLayout {
         Button bluetooth = findViewById(R.id.bluetooth);
         Button set = findViewById(R.id.set);
         Button next = findViewById(R.id.next);
-        Button exit = findViewById(R.id.exit);
 
         home.setOnClickListener(new OnClickListener() {
             @Override
@@ -69,12 +68,5 @@ public class FloatToolbarView extends LinearLayout {
             }
         });
 
-        exit.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myWindowManager.removeBigWindow(context);
-                myWindowManager.createSmallWindow(context);
-            }
-        });
     }
 }

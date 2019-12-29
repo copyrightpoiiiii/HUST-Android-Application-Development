@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/info_background"
+    android:background="@drawable/pikaa"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -16,7 +16,7 @@
         android:layout_below="@+id/imageView1"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="27dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="106dp"
         android:layout_toEndOf="@+id/textView"
         android:layout_toRightOf="@+id/textView"
         android:text="@string/hello_world"
@@ -64,7 +64,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="85dp"
-        android:layout_marginLeft="85dp"
+        android:layout_marginLeft="100dp"
         android:text="名字："
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="46dp"
         android:src="@drawable/main_petinfo" />
 
 </RelativeLayout>

@@ -2,6 +2,8 @@ package com.example.desktoppet;
 
 import android.app.ActivityManager;
 import android.app.Service;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,8 +13,10 @@ import android.os.IBinder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.TreeMap;
 
 public class FloatService extends Service {
 
@@ -41,11 +45,12 @@ public class FloatService extends Service {
         clockForCreateFloatWindow = null;
     }
 
+
     @SuppressWarnings("deprecation")
-    private boolean asHome() {
-        ActivityManager myActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningTaskInfo> returnInfo = myActivityManager.getRunningTasks(1);
-        return getHomes().contains(returnInfo.get(0).topActivity.getPackageName());
+    private boolean isHome() {
+        ActivityManager mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> rti = mActivityManager.getRunningTasks(1);
+        return getHomes().contains(rti.get(0).topActivity.getPackageName());
     }
 
     private List<String> getHomes() {
@@ -63,14 +68,14 @@ public class FloatService extends Service {
     class Refresh extends TimerTask {
         @Override
         public void run() {
-            if (asHome() && myWindowManager.isWindowShowing()) {
+            if (isHome() && !myWindowManager.isWindowShowing()) {
                 floatWindow.post(new Runnable() {
                     @Override
                     public void run() {
                         myWindowManager.createSmallWindow(getApplicationContext());
                     }
                 });
-            } else if (!asHome() && myWindowManager.isWindowShowing()) {
+            } else if (!isHome() && myWindowManager.isWindowShowing()) {
                 floatWindow.post(new Runnable() {
                     @Override
                     public void run() {

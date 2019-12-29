@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/main_background_p"
+    android:background="@drawable/girl"
     tools:context=".MainActivity">
 
     <Button
@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="127dp"
+        android:layout_marginBottom="180dp"
+        android:alpha="1"
+        android:background="@android:drawable/toast_frame"
         android:text="Start Pet" />
 
     <TextView
@@ -19,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:text="制作：CSGO" />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
