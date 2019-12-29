@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
@@ -140,6 +141,14 @@ public class FloatWindowPetView extends LinearLayout {
             doTranslateAnimation(1);
             flag = false;
         }
+    }
+
+    private TranslateAnimation getTranslateAnimation(float x, boolean FillAfter) {
+        TranslateAnimation tAnim = new TranslateAnimation(0, x, 0, 0);
+        tAnim.setDuration(500);
+        tAnim.setFillAfter(FillAfter);
+        tAnim.setInterpolator(new AccelerateDecelerateInterpolator());
+        return tAnim;
     }
 
     private void doTranslateAnimation(final float x) {
