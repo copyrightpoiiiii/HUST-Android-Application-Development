@@ -1,6 +1,6 @@
 package com.example.desktoppet;
 
-public class SingeAnimation {
+public class SingleAnimation {
     static public Animation[][] animationSet = new Animation[][]{
             //cat
             {

@@ -38,14 +38,14 @@ public class NormalTask extends AsyncTask<Void, Void, Boolean> {
         if (FloatWindowPetView.flag) {
             cnt++;
             int petIndex = FloatWindowPetView.getPetIndex();
-            int animationSize = SingleAnimaion.animationSet[petIndex].length;
+            int animationSize = SingleAnimation.animationSet[petIndex].length;
             if (cnt >= 3 && !((AnimationDrawable) FloatWindowPetView.petView.getBackground()).isRunning()) {
                 cnt = 0;
                 //((AnimationDrawable)FloatWindowSmallView.petView.getBackground()).stop();
                 animationIndex = (int) (Math.random() * animationSize);
-                SingleAnimaion.animationSet[petIndex][animationIndex].play();
+                SingleAnimation.animationSet[petIndex][animationIndex].play();
             } else
-                SingleAnimaion.animationSet[petIndex][0].play();
+                SingleAnimation.animationSet[petIndex][0].play();
             Log.d("animation index:" + animationIndex, String.valueOf(cnt));
         }
     }
