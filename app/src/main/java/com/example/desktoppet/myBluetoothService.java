@@ -1,13 +1,13 @@
 package com.example.desktoppet;
 
 import android.app.Service;
-import android.content.*;
+import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.widget.Toast;
 
 
-public class myBluetoothService extends Sevice {
+public class myBluetoothService extends Service {
     private boolean ListenOrSearch = false;
     private String address = null;
 
