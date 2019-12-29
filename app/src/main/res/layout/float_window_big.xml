@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/big_window_layout"
+    android:layout_width="200dip"
+    android:layout_height="50dip"
+    android:background="@drawable/toolbar_bg"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/toolbar_home" />
+
+    <Button
+        android:id="@+id/clock"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/wake_icon" />
+
+    <Button
+        android:id="@+id/bluetooth"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/play_bluetooth" />
+
+    <Button
+        android:id="@+id/set"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/toolbar_set" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/toolbar_next" />
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/toolbar_exit" />
+</LinearLayout>
