@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
         Button start = findViewById(R.id.start_float_window);
         start.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View arg0) {
                 Intent intent = new Intent(MainActivity.this, FloatService.class);
                 startService(intent);
                 finish();

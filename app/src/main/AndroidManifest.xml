@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.desktoppet"
+    android:versionCode="1"
     android:versionName="1.0">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -30,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".FloatWindowService"></service>
+        <service android:name=".FloatService"></service>
 
         <service
             android:name=".WeChatMessagePushService"
@@ -60,8 +61,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.luoxl.androidDesktopPets.DeviceList" />
-        <activity android:name="com.luoxl.androidDesktopPets.ModeActivity" />
+        <activity android:name="com.example.desktoppet.DeviceList" />
+        <activity android:name="com.example.desktoppet.ModeActivity" />
 
         <service android:name=".myBluetoothService" />
 
