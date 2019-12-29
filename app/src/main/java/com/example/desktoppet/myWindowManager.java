@@ -1,6 +1,7 @@
 package com.example.desktoppet;
 
 import android.app.ActivityManager;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
+import android.view.accessibility.AccessibilityEvent;
 
 public class myWindowManager {
 
@@ -59,7 +61,8 @@ public class myWindowManager {
     /**
      * 创建一个小悬浮窗。初始位置为屏幕的右部中间位置。
      *
-     * @param context 必须为应用程序的Context.
+     * @param context
+     *            必须为应用程序的Context.
      */
     public static void createSmallWindow(Context context) {
         WindowManager windowManager = getWindowManager(context);
@@ -87,7 +90,8 @@ public class myWindowManager {
     /**
      * 将小悬浮窗从屏幕上移除。
      *
-     * @param context 必须为应用程序的Context.
+     * @param context
+     *            必须为应用程序的Context.
      */
     public static void removeSmallWindow(Context context) {
         if (smallWindow != null) {
@@ -100,7 +104,8 @@ public class myWindowManager {
     /**
      * 创建一个大悬浮窗。位置为屏幕正中间偏下。
      *
-     * @param context 必须为应用程序的Context.
+     * @param context
+     *            必须为应用程序的Context.
      */
     public static void createBigWindow(Context context) {
         WindowManager windowManager = getWindowManager(context);
@@ -154,7 +159,7 @@ public class myWindowManager {
     }
 
     public static void createBluetoothMessageWindow(Context context) {
-        Log.d("myWindowManager", "CreateBluetoothMessage");
+        Log.d("myWindowManager","CreateBluetoothMessage");
         WindowManager windowManager = getWindowManager(context);
         int screenWidth = windowManager.getDefaultDisplay().getWidth();
         int screenHeight = windowManager.getDefaultDisplay().getHeight();
@@ -166,18 +171,18 @@ public class myWindowManager {
                 bluetoothMessageWindowParams.format = PixelFormat.RGBA_8888;
                 bluetoothMessageWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL;
                 bluetoothMessageWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-                bluetoothMessageWindowParams.width = com.example.desktoppet.bluetoothMessageWindow.viewWidth;
-                bluetoothMessageWindowParams.height = com.example.desktoppet.bluetoothMessageWindow.viewHeight;
+                bluetoothMessageWindowParams.width = bluetoothMessageWindow.viewWidth;
+                bluetoothMessageWindowParams.height = bluetoothMessageWindow.viewHeight;
             }
             bluetoothMessageWindowParams.x = smallWindowParams.x - FloatWindowPetView.viewWidth;
-            bluetoothMessageWindowParams.y = (int) (smallWindowParams.y - 1.5 * FloatWindowPetView.viewHeight);
+            bluetoothMessageWindowParams.y = (int) (smallWindowParams.y - 1.5*FloatWindowPetView.viewHeight);
 
             windowManager.addView(bluetoothMessageWindow, bluetoothMessageWindowParams);
         }
     }
 
     public static void createBluetoothMessageWindow(Context context, String message) {
-        Log.d("myWindowManager", "CreateBluetoothMessage");
+        Log.d("myWindowManager","CreateBluetoothMessage");
         WindowManager windowManager = getWindowManager(context);
         int screenWidth = windowManager.getDefaultDisplay().getWidth();
         int screenHeight = windowManager.getDefaultDisplay().getHeight();
@@ -189,11 +194,11 @@ public class myWindowManager {
                 bluetoothMessageWindowParams.format = PixelFormat.RGBA_8888;
                 bluetoothMessageWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL;
                 bluetoothMessageWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-                bluetoothMessageWindowParams.width = com.example.desktoppet.bluetoothMessageWindow.viewWidth;
-                bluetoothMessageWindowParams.height = com.example.desktoppet.bluetoothMessageWindow.viewHeight;
+                bluetoothMessageWindowParams.width = bluetoothMessageWindow.viewWidth;
+                bluetoothMessageWindowParams.height = bluetoothMessageWindow.viewHeight;
             }
             bluetoothMessageWindowParams.x = smallWindowParams.x - FloatWindowPetView.viewWidth;
-            bluetoothMessageWindowParams.y = (int) (smallWindowParams.y - 1.5 * FloatWindowPetView.viewHeight);
+            bluetoothMessageWindowParams.y = (int) (smallWindowParams.y - 1.5*FloatWindowPetView.viewHeight);
 
             windowManager.addView(bluetoothMessageWindow, bluetoothMessageWindowParams);
         }
@@ -222,7 +227,7 @@ public class myWindowManager {
                 messageWindowParams.height = FloatWindowMessageView.viewHeight;
             }
             messageWindowParams.x = smallWindowParams.x - FloatWindowPetView.viewWidth;
-            messageWindowParams.y = (int) (smallWindowParams.y - 1.5 * FloatWindowPetView.viewHeight);
+            messageWindowParams.y = (int) (smallWindowParams.y - 1.5*FloatWindowPetView.viewHeight);
             windowManager.addView(messageWindow, messageWindowParams);
         }
     }
@@ -237,7 +242,8 @@ public class myWindowManager {
         try {
             pendingIntent.send();
             removeMessageWindow(context);
-        } catch (PendingIntent.CanceledException e) {
+        } catch (PendingIntent.CanceledException e)
+        {
             e.printStackTrace();
         }
     }
@@ -320,7 +326,8 @@ public class myWindowManager {
     /**
      * 改变宠物模型
      *
-     * @param context 必须为应用程序的Context.
+     * @param context
+     *            必须为应用程序的Context.
      */
     public static void changePetModel(Context context) {
         smallWindow.changePetModel();
