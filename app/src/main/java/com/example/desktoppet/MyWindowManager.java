@@ -63,6 +63,8 @@ public class myWindowManager {
      */
     public static void createSmallWindow(Context context) {
         WindowManager windowManager = getWindowManager(context);
+        int screenWidth = windowManager.getDefaultDisplay().getWidth();
+        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (smallWindow == null) {
             smallWindow = new FloatWindowPetView(context);
             if (smallWindowParams == null) {
