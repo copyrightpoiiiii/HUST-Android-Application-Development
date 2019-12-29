@@ -1,5 +1,6 @@
 package com.example.desktoppet;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.DisplayMetrics;
@@ -8,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import java.lang.reflect.Field;
 
 public class FloatWindowPetView extends LinearLayout {
 
@@ -44,7 +49,7 @@ public class FloatWindowPetView extends LinearLayout {
             R.drawable.sponge_run,
             R.drawable.dog_run
     };
-    private int peyNum = 4;
+    private int petNum = 4;
 
     public FloatWindowPetView(final Context context) {
         super(context);
@@ -87,7 +92,7 @@ public class FloatWindowPetView extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 xInScreen = event.getRawX();
-                yInScreen = event.getRawY() = getStatusBarHeight();
+                yInScreen = event.getRawY() - getStatusBarHeight();
                 updateViewPosition();
             case MotionEvent.ACTION_UP:
                 if (xDownInScreen == xInScreen && yDownInScreen == yInScreen) {
@@ -113,5 +118,109 @@ public class FloatWindowPetView extends LinearLayout {
         return true;
     }
 
+    public static int getPetIndex() {
+        return petIndex;
+    }
+
+    public void setParams(WindowManager.LayoutParams wParams) {
+        params = wParams;
+    }
+
+    private void updateViewPosition() {
+        params.x = (int) (xInScreen - xInView);
+        params.y = (int) (yInScreen - yInView);
+        windowManager.updateViewLayout(this, params);
+    }
+
+    private void updateViewPosition3() {
+        if (params.x <= 0) {
+            doTranslateAnimation(-1);
+            flag = false;
+        } else if (params.x + viewWidth >= swidth) {
+            doTranslateAnimation(1);
+            flag = false;
+        }
+    }
+
+    private void doTranslateAnimation(final float x) {
+        AnimationSet set = new AnimationSet(true);
+        flag = false;
+        TranslateAnimation outAnim = new TranslateAnimation(
+                TranslateAnimation.RELATIVE_TO_SELF, 0,
+                TranslateAnimation.RELATIVE_TO_PARENT, x,
+                TranslateAnimation.RELATIVE_TO_SELF, 0,
+                TranslateAnimation.RELATIVE_TO_SELF, 0);
+        outAnim.setDuration(500);
+        outAnim.setStartOffset(100);
+        TranslateAnimation readyAnim2 = new TranslateAnimation(
+                TranslateAnimation.RELATIVE_TO_SELF, 0f,
+                TranslateAnimation.RELATIVE_TO_SELF, -x / 2f,
+                TranslateAnimation.RELATIVE_TO_SELF, 0f,
+                TranslateAnimation.RELATIVE_TO_SELF, 0f
+        );
+        readyAnim2.setDuration(300);
+        readyAnim2.setStartOffset(550);
+        set.addAnimation(readyAnim2);
+        set.setFillAfter(true);
+        outAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            /*
+             * 设置贴屏换图
+             */
+            @SuppressLint("NewApi")
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                petView.setScaleX(x);  //设置镜像
+                petView.setBackground(getResources().getDrawable(R.drawable.lovely_info_win));
+
+            }
+        });
+        set.addAnimation(outAnim);
+        view.startAnimation(set);
+    }
+
+    private void openBigWindow() {
+        myWindowManager.createBigWindow(getContext());
+    }
+
+    private void openBluetooth() {
+        myWindowManager.createBluetoothMessageWindow(getContext());
+    }
+
+    private void closeBigWindow() {
+        myWindowManager.removeBigWindow(getContext());
+    }
+
+    private void closeBluetooth() {
+        myWindowManager.removeBluetoothMessageWindow(getContext());
+    }
+
+    private int getStatusBarHeight() {
+        if (statusBarHeight == 0) {
+            try {
+                Class<?> c = Class.forName("com.android.internal.R$dimen");
+                Object o = c.newInstance();
+                Field field = c.getField("status_bar_height");
+                int x = (Integer) field.get(o);
+                statusBarHeight = getResources().getDimensionPixelSize(x);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return statusBarHeight;
+    }
+
+    public void changePetModel() {
+        petIndex = (petIndex + 1) % petNum;
+        petView.setBackgroundResource(petStayModelID[petIndex]);
+        ((AnimationDrawable) petView.getBackground()).start();
+    }
 
 }
