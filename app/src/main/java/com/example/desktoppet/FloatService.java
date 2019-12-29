@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Handler;
+import android.os.IBinder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +18,18 @@ public class FloatService extends Service {
 
     private Handler floatWindow = new Handler();
 
-    private Timer clockForCreatFloatwindow;
+    private Timer clockForCreateFloatWindow;
 
-    /*@Override
-    public IBinder onBind(Intent intent){return null;}*/
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
-    @Override：
-    public int startComd(Intent intent, int flags, int startId) {
-        if (clockForCreatFloatwindow == null) {
-            clockForCreatFloatwindow = new Timer();
-            clockForCreatFloatwindow.scheduleAtFixedRate(new Refresh(), 0, 500);
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (clockForCreateFloatWindow == null) {
+            clockForCreateFloatWindow = new Timer();
+            clockForCreateFloatWindow.scheduleAtFixedRate(new Refresh(), 0, 500);
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -34,15 +37,15 @@ public class FloatService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        clockForCreatFloatwindow.cancel();
-        clockForCreatFloatwindow = null;
+        clockForCreateFloatWindow.cancel();
+        clockForCreateFloatWindow = null;
     }
 
     @SuppressWarnings("deprecation")
     private boolean asHome() {
         ActivityManager myActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> returnInfo = myActivityManager.getRunningTasks(1);
-        return
+        return getHomes().contains(returnInfo.get(0).topActivity.getPackageName());
     }
 
     private List<String> getHomes() {
@@ -60,19 +63,19 @@ public class FloatService extends Service {
     class Refresh extends TimerTask {
         @Override
         public void run() {
-            if (asHome() && MyWindowManager.isWindowShowing()) {
+            if (asHome() && myWindowManager.isWindowShowing()) {
                 floatWindow.post(new Runnable() {
                     @Override
                     public void run() {
-                        MyWindowManager.createSmallWindow(getApplicationContext());
+                        myWindowManager.createSmallWindow(getApplicationContext());
                     }
                 });
-            } else if (!asHome() &&) {
+            } else if (!asHome() && myWindowManager.isWindowShowing()) {
                 floatWindow.post(new Runnable() {
                     @Override
                     public void run() {
-                        MyWindowManager.removeSmallWindow(getApplicationContext());
-                        MyWindowManager.removeBigWindow(getApplicationContext());
+                        myWindowManager.removeSmallWindow(getApplicationContext());
+                        myWindowManager.removeBigWindow(getApplicationContext());
                     }
                 });
             }

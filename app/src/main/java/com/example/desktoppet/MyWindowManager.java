@@ -19,7 +19,7 @@ public class myWindowManager {
     /**
      * 大悬浮窗View的实例
      */
-    private static FloatWindowToolbarView bigWindow;
+    private static FloatToolbarView bigWindow;
 
     /**
      * 小悬浮窗View的参数
@@ -63,8 +63,6 @@ public class myWindowManager {
      */
     public static void createSmallWindow(Context context) {
         WindowManager windowManager = getWindowManager(context);
-        int screenWidth = windowManager.getDefaultDisplay().getWidth();
-        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (smallWindow == null) {
             smallWindow = new FloatWindowPetView(context);
             if (smallWindowParams == null) {
@@ -104,10 +102,8 @@ public class myWindowManager {
      */
     public static void createBigWindow(Context context) {
         WindowManager windowManager = getWindowManager(context);
-        int screenWidth = windowManager.getDefaultDisplay().getWidth();
-        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (bigWindow == null) {
-            bigWindow = new FloatWindowToolbarView(context);
+            bigWindow = new FloatToolbarView(context);
         }
         if (bigWindowParams == null) {
             bigWindowParams = new LayoutParams();
@@ -115,8 +111,8 @@ public class myWindowManager {
             bigWindowParams.format = PixelFormat.RGB_565;
             bigWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL;
             bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-            bigWindowParams.width = FloatWindowToolbarView.viewWidth;
-            bigWindowParams.height = FloatWindowToolbarView.viewHeight;
+            bigWindowParams.width = FloatToolbarView.viewWidth;
+            bigWindowParams.height = FloatToolbarView.viewHeight;
         }
         bigWindowParams.x = smallWindowParams.x - FloatWindowPetView.viewWidth;
         bigWindowParams.y = smallWindowParams.y + FloatWindowPetView.viewHeight;
@@ -133,18 +129,16 @@ public class myWindowManager {
      */
     public static void createBluetoothWindow(Context context) {
         WindowManager windowManager = getWindowManager(context);
-        int screenWidth = windowManager.getDefaultDisplay().getWidth();
-        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (bigWindow == null) {
-            bigWindow = new FloatWindowToolbarView(context);
+            bigWindow = new FloatToolbarView(context);
             if (bigWindowParams == null) {
                 bigWindowParams = new LayoutParams();
                 bigWindowParams.type = LayoutParams.TYPE_PHONE;
                 bigWindowParams.format = PixelFormat.RGBA_8888;
                 bigWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL;
                 bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-                bigWindowParams.width = FloatWindowToolbarView.viewWidth;
-                bigWindowParams.height = FloatWindowToolbarView.viewHeight;
+                bigWindowParams.width = FloatToolbarView.viewWidth;
+                bigWindowParams.height = FloatToolbarView.viewHeight;
             }
             bigWindowParams.x = smallWindowParams.x - FloatWindowPetView.viewWidth;
             bigWindowParams.y = smallWindowParams.y + FloatWindowPetView.viewHeight;
@@ -156,8 +150,6 @@ public class myWindowManager {
     public static void createBluetoothMessageWindow(Context context) {
         Log.d("myWindowManager", "CreateBluetoothMessage");
         WindowManager windowManager = getWindowManager(context);
-        int screenWidth = windowManager.getDefaultDisplay().getWidth();
-        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (bluetoothMessageWindow == null) {
             bluetoothMessageWindow = new bluetoothMessageWindow(context);
             if (bluetoothMessageWindowParams == null) {
@@ -179,8 +171,6 @@ public class myWindowManager {
     public static void createBluetoothMessageWindow(Context context, String message) {
         Log.d("myWindowManager", "CreateBluetoothMessage");
         WindowManager windowManager = getWindowManager(context);
-        int screenWidth = windowManager.getDefaultDisplay().getWidth();
-        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (bluetoothMessageWindow == null) {
             bluetoothMessageWindow = new bluetoothMessageWindow(context, message);
             if (bluetoothMessageWindowParams == null) {
@@ -207,8 +197,6 @@ public class myWindowManager {
      */
     public static void createMessageWindow(Context context, PendingIntent pendingIntent, String text) {
         WindowManager windowManager = getWindowManager(context);
-        int screenWidth = windowManager.getDefaultDisplay().getWidth();
-        int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (messageWindow == null) {
             messageWindow = new FloatWindowMessageView(context, pendingIntent, text);
             if (messageWindowParams == null) {
@@ -328,15 +316,15 @@ public class myWindowManager {
 
     public static void init(Context context) {
         if (bigWindow == null) {
-            bigWindow = new FloatWindowToolbarView(context);
+            bigWindow = new FloatToolbarView(context);
             if (bigWindowParams == null) {
                 bigWindowParams = new LayoutParams();
                 bigWindowParams.type = LayoutParams.TYPE_PHONE;
                 bigWindowParams.format = PixelFormat.RGB_565;
                 bigWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL;
                 bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-                bigWindowParams.width = FloatWindowToolbarView.viewWidth;
-                bigWindowParams.height = FloatWindowToolbarView.viewHeight;
+                bigWindowParams.width = FloatToolbarView.viewWidth;
+                bigWindowParams.height = FloatToolbarView.viewHeight;
             }
         }
     }
