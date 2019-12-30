@@ -62,6 +62,7 @@ public class myWindowManager {
      * @param context 必须为应用程序的Context.
      */
     public static void createSmallWindow(Context context) {
+
         WindowManager windowManager = getWindowManager(context);
         int screenWidth = windowManager.getDefaultDisplay().getWidth();
         int screenHeight = windowManager.getDefaultDisplay().getHeight();
@@ -201,6 +202,26 @@ public class myWindowManager {
         WindowManager windowManager = getWindowManager(context);
         if (messageWindow == null) {
             messageWindow = new FloatWindowMessageView(context, pendingIntent, text);
+            if (messageWindowParams == null) {
+                messageWindowParams = new LayoutParams();
+                messageWindowParams.type = LayoutParams.TYPE_PHONE;
+                messageWindowParams.format = PixelFormat.RGBA_8888;
+                messageWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL
+                        | LayoutParams.FLAG_NOT_FOCUSABLE;
+                messageWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
+                messageWindowParams.width = FloatWindowMessageView.viewWidth;
+                messageWindowParams.height = FloatWindowMessageView.viewHeight;
+            }
+            messageWindowParams.x = smallWindowParams.x - FloatWindowPetView.viewWidth;
+            messageWindowParams.y = (int) (smallWindowParams.y - 1.5 * FloatWindowPetView.viewHeight);
+            windowManager.addView(messageWindow, messageWindowParams);
+        }
+    }
+
+    public static void createMessageWindow(Context context, String text) {
+        WindowManager windowManager = getWindowManager(context);
+        if (messageWindow == null) {
+            messageWindow = new FloatWindowMessageView(context, null, text);
             if (messageWindowParams == null) {
                 messageWindowParams = new LayoutParams();
                 messageWindowParams.type = LayoutParams.TYPE_PHONE;
