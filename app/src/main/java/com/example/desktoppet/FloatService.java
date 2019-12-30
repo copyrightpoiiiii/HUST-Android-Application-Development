@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.EditTextPreference;
 import android.view.accessibility.AccessibilityEvent;
 
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class FloatService extends Service {
         }
         if (alarmChong == null) {
             alarmChong = new Timer();
-            alarmChong.scheduleAtFixedRate(new SetAlarm(), 0, 1000 * 5 * 60);//* 60 * Integer.parseInt(Consts.CLOCK_KEY));
+            alarmChong.scheduleAtFixedRate(new SetAlarm(), 0, 1000 * 60 * 5);//* 60 * Integer.parseInt(Consts.CLOCK_KEY));
 
         }
         return super.onStartCommand(intent, flags, startId);
@@ -69,12 +70,10 @@ public class FloatService extends Service {
                 public void run() {
                     myWindowManager.createSmallWindow(getApplicationContext());
                     String text;
-                    if (isNumeric(Consts.CLOCK_KEY) && Integer.parseInt(Consts.CLOCK_KEY) > 0)
-                        text = "你已经玩了" + Consts.CLOCK_KEY + "分钟手机啦，休息一会吧!";
-                    else text = "你已经玩了5分钟手机啦，休息一会吧!";
+                    text = "你已经玩了5分钟手机啦，休息一会吧!";
                     myWindowManager.createMessageWindow(getBaseContext(), text);
                     if (isNumeric(Consts.CLOCK_KEY) && Integer.parseInt(Consts.CLOCK_KEY) > 0)
-                        alarmChong.scheduleAtFixedRate(new SetAlarm(), 0, 1000 * 60 * Integer.parseInt(Consts.CLOCK_KEY));
+                        alarmChong.scheduleAtFixedRate(new SetAlarm(), 0, 1000 * 5 * 60);
                 }
             });
         }

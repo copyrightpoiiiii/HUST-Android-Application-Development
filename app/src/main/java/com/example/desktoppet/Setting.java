@@ -22,7 +22,7 @@ public class Setting extends PreferenceActivity
     private EditTextPreference name;
     private ListPreference sex;
     private EditTextPreference year;
-    private EditTextPreference set_time;
+    public EditTextPreference set_time;
     private ListPreference character;
     private CheckBoxPreference start;
     private PreferenceScreen notice;
