@@ -26,7 +26,7 @@ public class FloatWindowPetView extends LinearLayout {
     public static ImageView petView;
     public static boolean flag = true;
     private static int statusBarHeight;
-    private static int petIndex = 0;
+    private static int petIndex = 2;
     private WindowManager windowManager;
     private WindowManager.LayoutParams params;
     private float xInScreen;

@@ -18,7 +18,7 @@
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/wake_icon" />
+        android:background="@drawable/clock" />
 
     <Button
         android:id="@+id/bluetooth"
