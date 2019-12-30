@@ -31,8 +31,8 @@
             android:key="character_key"
             android:summary=""
             android:title="性格" />
-        <ListPreference
-            android:defaultValue="0"
+        <EditTextPreference
+            android:defaultValue=""
             android:icon="@drawable/clock"
             android:key="set_time"
             android:summary=""

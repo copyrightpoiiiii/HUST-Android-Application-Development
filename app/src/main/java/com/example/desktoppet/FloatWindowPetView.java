@@ -83,7 +83,7 @@ public class FloatWindowPetView extends LinearLayout {
                 if (((AnimationDrawable) petView.getBackground()).isRunning())
                     stat = "isRunning";
                 else stat = "notRunning";
-                Log.d("1", stat);
+                Log.d("2", stat);
                 xInView = event.getX();
                 yInView = event.getY();
                 xDownInScreen = event.getRawX();

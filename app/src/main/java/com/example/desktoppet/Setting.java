@@ -12,15 +12,21 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 
+import java.sql.Time;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Setting extends PreferenceActivity
         implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
     private EditTextPreference name;
     private ListPreference sex;
     private EditTextPreference year;
+    public EditTextPreference set_time;
     private ListPreference character;
     private CheckBoxPreference start;
     private PreferenceScreen notice;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,7 @@ public class Setting extends PreferenceActivity
         name = (EditTextPreference) findPreference(Consts.NAME_KEY);
         sex = (ListPreference) findPreference((Consts.SEX_KEY));
         year = (EditTextPreference) findPreference((Consts.YEAR_KEY));
+        set_time = (EditTextPreference) findPreference((Consts.CLOCK_KEY));
         character = (ListPreference) findPreference(Consts.CHARACTER_KEY);
         start = (CheckBoxPreference) findPreference((Consts.START_KEY));
         notice = (PreferenceScreen) findPreference(Consts.NOTICE_KEY);
@@ -63,7 +70,7 @@ public class Setting extends PreferenceActivity
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(Consts.NAME_KEY)) {
-            name.setSummary(sharedPreferences.getString(key, "发哥"));
+            name.setSummary(sharedPreferences.getString(key, ""));
         } else if (key.equals(Consts.SEX_KEY)) {
             sex.setSummary(sharedPreferences.getString(key, ""));
         } else if (key.equals(Consts.YEAR_KEY)) {
@@ -72,8 +79,11 @@ public class Setting extends PreferenceActivity
             character.setSummary(sharedPreferences.getString(key, ""));
         } else if (key.equals(Consts.START_KEY)) {
 //            start.setSummary(sharedPreferences.getString(key, ""));
+        } else if (key.equals(Consts.CLOCK_KEY)) {
+            set_time.setSummary(sharedPreferences.getString(key, ""));
         }
     }
+
 
     private void openSetting() {
         try {
