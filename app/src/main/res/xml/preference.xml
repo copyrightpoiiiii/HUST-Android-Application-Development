@@ -3,7 +3,7 @@
     <PreferenceCategory android:title="宠物信息">
         <EditTextPreference
             android:defaultValue=""
-            android:icon="@drawable/pet_name"
+            android:icon="@drawable/iconbame1"
             android:key="name_key"
             android:summary=""
             android:title="姓名" />
@@ -12,13 +12,13 @@
             android:dialogTitle="选择性别"
             android:entries="@array/sex_lists"
             android:entryValues="@array/sex_lists"
-            android:icon="@drawable/pet_sex"
+            android:icon="@drawable/icongender1"
             android:key="sex_key"
             android:summary=""
             android:title="性别" />
         <EditTextPreference
             android:defaultValue=""
-            android:icon="@drawable/birthday"
+            android:icon="@drawable/iconage1"
             android:key="year_key"
             android:summary=""
             android:title="年龄" />
@@ -27,13 +27,13 @@
             android:dialogTitle="选择性格"
             android:entries="@array/character_lists"
             android:entryValues="@array/character_lists"
-            android:icon="@drawable/character"
+            android:icon="@drawable/iconswtindex1"
             android:key="character_key"
             android:summary=""
             android:title="性格" />
         <EditTextPreference
             android:defaultValue=""
-            android:icon="@drawable/clock"
+            android:icon="@drawable/clock1"
             android:key="set_time"
             android:summary=""
             android:title="定时提醒设置" />

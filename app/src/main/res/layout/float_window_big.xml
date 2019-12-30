@@ -11,42 +11,42 @@
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/toolbar_home" />
+        android:background="@drawable/iconhome1" />
 
     <Button
         android:id="@+id/clock"
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/clock" />
+        android:background="@drawable/iconclock1" />
 
     <Button
         android:id="@+id/bluetooth"
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/play_bluetooth" />
+        android:background="@drawable/iconbluetooth1" />
 
     <Button
         android:id="@+id/set"
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/toolbar_set" />
+        android:background="@drawable/iconsetting1" />
 
     <Button
         android:id="@+id/next"
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/toolbar_next" />
+        android:background="@drawable/iconswitch1" />
 
     <Button
         android:id="@+id/search"
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/toolbar_next" />
+        android:background="@drawable/iconsearch1" />
 
     <Button
         android:id="@+id/exit"
