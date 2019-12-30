@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/bulaike10"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/bulaike11"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/bulaike12"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/bulaike13"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/bulaike14"
+        android:duration="150"></item>
+</animation-list>

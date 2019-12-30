@@ -3,15 +3,15 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
     <item
-        android:drawable="@drawable/pet_cat_stay1"
+        android:drawable="@drawable/jiansan11"
         android:duration="500"></item>
     <item
-        android:drawable="@drawable/pet_cat_stay2"
+        android:drawable="@drawable/jiansan15"
         android:duration="500"></item>
     <item
-        android:drawable="@drawable/pet_cat_stay3"
+        android:drawable="@drawable/jiansan20"
         android:duration="500"></item>
     <item
-        android:drawable="@drawable/pet_cat_stay4"
+        android:drawable="@drawable/jiansan21"
         android:duration="500"></item>
 </animation-list>

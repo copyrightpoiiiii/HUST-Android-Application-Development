@@ -26,7 +26,7 @@ public class FloatWindowPetView extends LinearLayout {
     public static ImageView petView;
     public static boolean flag = true;
     private static int statusBarHeight;
-    private static int petIndex = 2;
+    private static int petIndex = 1;
     private WindowManager windowManager;
     private WindowManager.LayoutParams params;
     private float xInScreen;
@@ -39,16 +39,16 @@ public class FloatWindowPetView extends LinearLayout {
     private View view;
     private boolean isOpenBigWin = false;
     private int[] petStayModelID = {
-            R.drawable.cat_stay,
+            R.drawable.billd_stay,
             R.drawable.pika_stay,
             R.drawable.sponge_stay,
-            R.drawable.dog_stay
+            R.drawable.cat_stay,
     };
     private int[] petRunModelID = {
             R.drawable.cat_run,
             R.drawable.pika_run,
             R.drawable.sponge_run,
-            R.drawable.dog_run
+            R.drawable.dog_run,
     };
     private int petNum = 4;
 

@@ -48,7 +48,7 @@ public class SingleAnimation {
 
             //dog
             {
-                    new Animation(R.drawable.dog_stay, 2000),
+                    new Animation(R.drawable.billd_stay, 2000),
                     new Animation(R.drawable.dog_bath, 8500),
                     new Animation(R.drawable.dog_feed, 2000),
                     new Animation(R.drawable.dog_lonely, 3000),
