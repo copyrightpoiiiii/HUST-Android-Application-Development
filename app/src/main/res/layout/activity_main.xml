@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="195dp"
-        android:alpha="1"
+        android:layout_marginBottom="175dp"
+        android:alpha="0.7"
         android:background="@android:drawable/toast_frame"
         android:text="Start Pet" />
 
