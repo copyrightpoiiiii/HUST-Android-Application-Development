@@ -2,6 +2,7 @@ package com.example.desktoppet;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.provider.AlarmClock;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class FloatToolbarView extends LinearLayout {
         Button bluetooth = findViewById(R.id.bluetooth);
         Button set = findViewById(R.id.set);
         Button next = findViewById(R.id.next);
+        Button sear = findViewById(R.id.search);
 
         home.setOnClickListener(new OnClickListener() {
             @Override
@@ -65,6 +67,15 @@ public class FloatToolbarView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 myWindowManager.changePetModel(context);
+            }
+        });
+
+        sear.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://www.baidu.com");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(intent);
             }
         });
 

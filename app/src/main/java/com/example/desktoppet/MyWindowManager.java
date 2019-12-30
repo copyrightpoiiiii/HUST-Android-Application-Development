@@ -6,8 +6,12 @@ import android.content.Context;
 import android.graphics.PixelFormat;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class myWindowManager {
 
@@ -217,6 +221,7 @@ public class myWindowManager {
             windowManager.addView(messageWindow, messageWindowParams);
         }
     }
+
 
     public static void createMessageWindow(Context context, String text) {
         WindowManager windowManager = getWindowManager(context);
